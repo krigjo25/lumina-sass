@@ -23,9 +23,16 @@
     @if $origin != null
         background-origin: $origin
 
-@mixin video-wrapper($feeback-overlay, $feedback-color, $section-color, $input-accent-color, $accent-color,$icon-color)
+@mixin video-wrapper($feeback-overlay, $feedback-color, $section-trans-overlay, $input-accent-color, $accent-color,$icon-color)
 
     .video-wrapper
+        display: grid
+        cursor: pointer
+        overflow: hidden
+        border-radius: 1rem
+        background-color: black
+        grid-template-areas: "media"
+
         &:hover
             > section
                 opacity: 1
@@ -70,12 +77,12 @@
         > section
             margin: 0
             z-index: 1
-            gap:0.3rem
+            gap: 0.3rem
             padding: 1rem
             align-self: end
             grid-area: media
             inline-size: 100%
-            background: linear-gradient(transparent, rgba($section-color, .7))
+            background: linear-gradient(transparent, rgba($section-trans-overlay, .7))
 
             // Hover Transition Logic
             opacity: 0
@@ -127,9 +134,3 @@
         *   // Global reset for video wrapper children to counter index.sass margin: auto
             padding: 0
             margin: auto
-            display: grid
-            cursor: pointer
-            overflow: hidden
-            border-radius: 1rem
-            background-color: black
-            grid-template-areas: "media"
