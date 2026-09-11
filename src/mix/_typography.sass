@@ -16,7 +16,7 @@
     overflow-wrap: anywhere
     min-inline-size: $inline
 
-@mixin font( $font:null, $size: 1rem, $family: null, $style: null, $weight: null, $line-height: null, $variant: null, $quiet: false)
+@mixin font( $font:null, $size: null, $family: null, $style: null, $weight: null, $line-height: null, $variant: null, $quiet: false)
   $detected-family: func-typo.font-family-of($font)
 
   @if func-typo.is-known-font($font)
@@ -42,6 +42,7 @@
 
   @if $font != null
     font-family: $font, $family
+
   @else
     font-family: $family
 
